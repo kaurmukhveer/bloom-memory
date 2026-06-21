@@ -1,20 +1,20 @@
 import Card from "./Card";
 
 function GameBoard({ cards, handleFlip, moves }) {
+  const matchedCards = cards.filter((card) => card.matched).length;
+  const totalPairs = cards.length / 2;
+  const matchedPairs = matchedCards / 2;
+
   return (
     <section className="game-board">
-      <h2>Memory Board</h2>
-      <p>Moves: {moves}</p>
+      <div className="stats-bar">
+        <span>Moves: {moves}</span>
+        <span>Matches: {matchedPairs} / {totalPairs}</span>
+      </div>
 
       <div className="game-grid">
         {cards.map((card) => (
-          <Card
-            key={card.id}
-            card={card}
-            handleFlip={handleFlip}
-            moves={moves}
-          
-          />
+          <Card key={card.id} card={card} handleFlip={handleFlip} />
         ))}
       </div>
     </section>
