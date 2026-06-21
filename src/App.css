@@ -37,8 +37,8 @@ body {
 .theme-volcanicBlitz {
   --bg: linear-gradient(135deg, #1f0f0f, #450a0a);
   --panel: #2a1818;
-  --primary: #ef4444;
-  --secondary: #7f1d1d;
+  --primary: #c04b4b;
+  --secondary: #892727;
   --accent: #facc15;
   --text: #fff7ed;
 }
@@ -276,4 +276,34 @@ body {
     height: 80px;
     font-size: 1.8rem;
   }
+}
+
+
+.theme-volcanicBlitz .win-screen p,
+.theme-ancientCrypts .win-screen p {
+  color: #f5f3ff;
+}
+
+.theme-volcanicBlitz .win-screen h1,
+.theme-ancientCrypts .win-screen h1 {
+  color: #fff7ed;
+}
+
+.theme-volcanicBlitz .win-screen,
+.theme-ancientCrypts .win-screen {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.theme-volcanicBlitz .stats-bar,
+.theme-ancientCrypts .stats-bar {
+  color: #fff7ed;
+}
+
+.theme-volcanicBlitz .setup-card label,
+.theme-ancientCrypts .setup-card label {
+  color: #f5f3ff;
+}
+.win-screen p {
+  color: var(--text);
+  font-weight: 500;
 }
