@@ -156,3 +156,12 @@ body {
   color: #2f5d50;
   font-weight: 700;
 }
+
+.hidden-card {
+  background: #dde8d5;
+  color: #2f5d50;
+}
+
+.visible-card {
+  background: #ffffff;
+}
