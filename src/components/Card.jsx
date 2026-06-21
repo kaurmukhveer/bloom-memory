@@ -1,7 +1,10 @@
-function Card({ card }) {
+function Card({ card, handleFlip }) {
   return (
-    <button className="memory-card">
-      {card.value}
+    <button
+      className="memory-card"
+      onClick={() => handleFlip(card)}
+    >
+      {card.flipped || card.matched ? card.value : "?"}
     </button>
   );
 }
