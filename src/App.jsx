@@ -104,7 +104,7 @@ useEffect(() => {
 }, [cards]);
 
  return (
-  <div className="app-container">
+  <div className={`app-container theme-${category}`}>
 
     {gameWon ? (
 

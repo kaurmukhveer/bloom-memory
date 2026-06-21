@@ -1,9 +1,60 @@
+/* =========================
+   GLOBAL
+========================= */
+
 body {
   margin: 0;
   min-height: 100vh;
-  background: #f7f4ea;
   font-family: "Segoe UI", sans-serif;
 }
+
+/* =========================
+   THEMES
+========================= */
+
+/* Calm Persona */
+
+.theme-zenGarden {
+  --bg: linear-gradient(135deg, #f7f4ea, #e8f5e9);
+  --panel: #ffffff;
+  --primary: #4a7c59;
+  --secondary: #dde8d5;
+  --accent: #f2c94c;
+  --text: #2f5d50;
+}
+
+.theme-gentleCreatures {
+  --bg: linear-gradient(135deg, #fff7ed, #fef3c7);
+  --panel: #ffffff;
+  --primary: #d97706;
+  --secondary: #fed7aa;
+  --accent: #f97316;
+  --text: #7c2d12;
+}
+
+/* Adventure Persona */
+
+.theme-volcanicBlitz {
+  --bg: linear-gradient(135deg, #1f0f0f, #450a0a);
+  --panel: #2a1818;
+  --primary: #ef4444;
+  --secondary: #7f1d1d;
+  --accent: #facc15;
+  --text: #fff7ed;
+}
+
+.theme-ancientCrypts {
+  --bg: linear-gradient(135deg, #171326, #312e81);
+  --panel: #241b3a;
+  --primary: #8b5cf6;
+  --secondary: #4c1d95;
+  --accent: #facc15;
+  --text: #f5f3ff;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
 
 .app-container {
   min-height: 100vh;
@@ -11,76 +62,38 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  background: var(--bg);
+  transition: all 0.4s ease;
 }
 
 .game-container {
   text-align: center;
+  width: 100%;
 }
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 
 .game-title {
-  color: #2f5d50;
+  color: var(--text);
   font-size: 3rem;
   margin-bottom: 1.5rem;
-}
-
-.game-grid {
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  max-width: 700px;
-}
-
-.memory-card {
-  height: 100px;
-  min-width: 90px;
-  border: 2px solid #4a7c59;
-  border-radius: 18px;
-  background: #ffffff;
-  font-size: 2.2rem;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.memory-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
-}
-
-.memory-card:focus {
-  outline: 3px solid #dde8d5;
-  outline-offset: 3px;
-}
-
-.setup-card {
-  width: 100%;
-  max-width: 700px;
-
-  background: white;
-
-  padding: 2rem;
-
-  border-radius: 24px;
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.08);
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.8rem;
-  color: #4a7c59;
+  color: var(--primary);
   font-weight: bold;
 }
 
-.setup-card h1 {
+.setup-card h1,
+.win-screen h1 {
   margin: 0;
-  color: #2f5d50;
+  color: var(--text);
   font-size: 3rem;
 }
 
@@ -89,79 +102,178 @@ body {
   line-height: 1.5;
 }
 
+/* Dark theme text fix */
+
+.theme-volcanicBlitz .intro,
+.theme-ancientCrypts .intro {
+  color: #d1d5db;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.setup-card,
+.win-screen {
+  width: 100%;
+  max-width: 700px;
+  background: var(--panel);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.setup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.win-screen {
+  text-align: center;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
 .setup-card select {
   width: 100%;
   padding: 0.8rem;
-
-  border: 2px solid #dde8d5;
-
+  border: 2px solid var(--secondary);
   border-radius: 12px;
-
   font-size: 1rem;
-
   margin-top: 0.5rem;
 }
 
 .primary-button {
-  background: #4a7c59;
+  background: var(--primary);
   color: white;
-
   border: none;
-
   border-radius: 12px;
-
   padding: 1rem;
-
   font-size: 1rem;
-
   font-weight: 600;
-
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .primary-button:hover {
-  background: #2f5d50;
+  background: var(--accent);
+  color: #111827;
+  transform: translateY(-2px);
+}
+/* =========================
+   GAME BOARD
+========================= */
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.win-screen {
-  width: 100%;
-  max-width: 650px;
 
-  background: white;
-
-  padding: 2rem;
-
-  border-radius: 24px;
-
-  text-align: center;
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.08);
-}
-
-.win-screen h1 {
-  color: #2f5d50;
-  font-size: 3rem;
-}
+/* =========================
+   STATS BAR
+========================= */
 
 .stats-bar {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  background: white;
+
+  background: var(--panel);
+
   padding: 1rem;
+
   border-radius: 16px;
+
   margin-bottom: 1.5rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  color: #2f5d50;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  color: var(--text);
+
   font-weight: 700;
 }
 
+/* =========================
+   GAME GRID
+========================= */
+
+.game-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 90px));
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* =========================
+   MEMORY CARDS
+========================= */
+
+.memory-card {
+  height: 100px;
+  min-width: 90px;
+
+  border: 2px solid var(--primary);
+
+  border-radius: 18px;
+
+  font-size: 2.2rem;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+
+  transition: all 0.25s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+}
+
+.memory-card:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .hidden-card {
-  background: #dde8d5;
-  color: #2f5d50;
+  background: var(--secondary);
+  color: var(--text);
 }
 
 .visible-card {
-  background: #ffffff;
+  background: var(--panel);
+}
+
+.theme-volcanicBlitz .visible-card,
+.theme-ancientCrypts .visible-card {
+  color: white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .game-title,
+  .setup-card h1,
+  .win-screen h1 {
+    font-size: 2rem;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .memory-card {
+    height: 80px;
+    font-size: 1.8rem;
+  }
 }
