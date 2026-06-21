@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SetupScreen from "./components/SetupScreen";
 import generateCards from "./utils/generateCards";
 import GameBoard from "./components/GameBoard";
+import WinScreen from "./components/WinScreen";
 
 function App() {
   const [level, setLevel] = useState("easyCalm");
@@ -11,6 +12,7 @@ function App() {
 
   const [flipped, setFlipped] = useState([]);
   const [moves, setMoves] = useState(0);
+  const [gameWon, setGameWon] = useState(false);
 
   function startGame() {
     const newCards = generateCards(level, category);
@@ -33,6 +35,15 @@ function App() {
   setCards(updatedCards);
 
   setFlipped([...flipped, clickedCard]);
+}
+
+
+function playAgain() {
+  setGameStarted(false);
+  setGameWon(false);
+  setCards([]);
+  setFlipped([]);
+  setMoves(0);
 }
 
 
@@ -78,29 +89,64 @@ useEffect(() => {
 
 }, [flipped]);
 
-  return (
-    <>
-      {gameStarted ? (
-        <main>
-          <h1>Bloom Memory</h1>
-          <p>Game started!</p>
-          <p>Cards generated: {cards.length}</p>
-          <GameBoard
-            cards={cards}
-            handleFlip={handleFlip}
-          />
-        </main>
-      ) : (
-        <SetupScreen
-          level={level}
-          setLevel={setLevel}
-          category={category}
-          setCategory={setCategory}
-          startGame={startGame}
-        />
-      )}
-    </>
+useEffect(() => {
+
+  if (cards.length === 0) return;
+
+  const allMatched = cards.every(
+    (card) => card.matched
   );
+
+  if (allMatched) {
+    setGameWon(true);
+  }
+
+}, [cards]);
+
+ return (
+  <div className="app-container">
+
+    {gameWon ? (
+
+      <WinScreen
+        level={level}
+        category={category}
+        moves={moves}
+        playAgain={playAgain}
+      />
+
+    ) : gameStarted ? (
+
+      <main className="game-container">
+
+        <h1 className="game-title">
+          🌿 Bloom Memory
+        </h1>
+
+        <GameBoard
+          cards={cards}
+          handleFlip={handleFlip}
+          moves={moves}
+        />
+
+      </main>
+
+    ) : (
+
+      <SetupScreen
+        level={level}
+        setLevel={setLevel}
+        category={category}
+        setCategory={setCategory}
+        startGame={startGame}
+      />
+
+    )}
+
+  </div>
+);
+
+  
 }
 
 export default App;
