@@ -1,16 +1,127 @@
-# React + Vite
+# Bloom Memory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bloom Memory is a React-based memory matching game developed for **SEG 3125 – Analysis and Design of User Interfaces** at the **University of Ottawa**.
 
-Currently, two official plugins are available:
+The game challenges players to match pairs of cards while testing memory and concentration. Players can choose between two different personas and gameplay styles:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Calm Path**
 
-## React Compiler
+  * Peaceful Breeze
+  * Inner Balance
+  * Mindful Mastery
+  * Themes: Zen Garden Oasis, Gentle Creatures Meadow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Adventure Path**
 
-## Expanding the ESLint configuration
+  * Daredevil Warmup
+  * Extreme Challenger
+  * Absolute Chaos
+  * Themes: Volcanic Blitz, Ancient Cryptographs
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+* Multiple difficulty levels
+* Multiple themes
+* Randomized card generation
+* Card matching mechanics
+* Move counter
+* Match tracking
+* Feedback messages
+* Win screen with statistics
+* Responsive design
+* Theme-based visual styling
+
+---
+
+## Technologies Used
+
+* React
+* Vite
+* JavaScript
+* CSS
+
+---
+
+## Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/kaurmukhveer/bloom-memory.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## Design Considerations
+
+The interface was designed to support two different user personas:
+
+### Calm Seeker
+
+A detail-oriented user who prefers a relaxing and peaceful experience. Soft colors, nature-inspired themes, and clean layouts were used to create a calming atmosphere.
+
+### Adventurous Risk-Taker
+
+A user who enjoys challenge and excitement. Darker color palettes, higher visual contrast, and adventure-themed environments were used to create a more energetic experience.
+
+The design incorporates several UI/UX principles including:
+
+* Visual Hierarchy
+* Contrast
+* Balance
+* Negative Space
+* Consistency
+* Gestalt Principles:
+
+  * Similarity
+  * Proximity
+  * Figure-Ground
+  * Continuity
+  * Closure
+
+---
+
+## AI Acknowledgement
+
+This project was designed, implemented, and tested by the author.
+
+Artificial Intelligence tools, including ChatGPT, were used as learning and development aids for:
+
+* Brainstorming game concepts
+* Reviewing React implementation approaches
+* Understanding React Hooks (`useState`, `useEffect`)
+* Receiving UI/UX design suggestions
+* Reviewing CSS styling ideas
+* Debugging and troubleshooting code issues
+
+All final design decisions, implementation choices, code integration, testing, and submission preparation were completed and verified by the author.
+
+---
+
+## Author
+
+**Mukhveer Kaur**
+University of Ottawa
+SEG 3125 – Analysis and Design of User Interfaces
+
+
