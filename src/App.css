@@ -56,3 +56,22 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  color: #4a7c59;
+  font-weight: bold;
+}
+
+.setup-card h1 {
+  margin: 0;
+  color: #2f5d50;
+  font-size: 3rem;
+}
+
+.intro {
+  color: #666;
+  line-height: 1.5;
+}
