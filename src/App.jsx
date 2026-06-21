@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SetupScreen from "./components/SetupScreen";
 import generateCards from "./utils/generateCards";
 import GameBoard from "./components/GameBoard";
@@ -10,6 +10,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
 
   const [flipped, setFlipped] = useState([]);
+  const [moves, setMoves] = useState(0);
 
   function startGame() {
     const newCards = generateCards(level, category);
@@ -33,6 +34,49 @@ function App() {
 
   setFlipped([...flipped, clickedCard]);
 }
+
+
+useEffect(() => {
+
+  if (flipped.length !== 2) {
+    return;
+  }
+
+  setMoves((m) => m + 1);
+
+  const [first, second] = flipped;
+
+  if (first.value === second.value) {
+
+    const updatedCards = cards.map((card) =>
+      card.value === first.value
+        ? { ...card, matched: true }
+        : card
+    );
+
+    setCards(updatedCards);
+
+    setFlipped([]);
+
+  } else {
+
+    setTimeout(() => {
+
+      const updatedCards = cards.map((card) =>
+        card.id === first.id || card.id === second.id
+          ? { ...card, flipped: false }
+          : card
+      );
+
+      setCards(updatedCards);
+
+      setFlipped([]);
+
+    }, 1000);
+
+  }
+
+}, [flipped]);
 
   return (
     <>
