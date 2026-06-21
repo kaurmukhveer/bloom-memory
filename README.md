@@ -101,6 +101,26 @@ The design incorporates several UI/UX principles including:
 
 ---
 
+## Manual Test Cases
+
+| Test Case | Steps | Expected Result | Status |
+|---|---|---|---|
+| Start game with Easy level | Select Peaceful Breeze and Zen Garden Oasis, click Begin Journey | Game board appears with 6 hidden cards | Pass |
+| Start game with Medium level | Select Inner Balance, click Begin Journey | Game board appears with 12 hidden cards | Pass |
+| Start game with Hard level | Select Mindful Mastery, click Begin Journey | Game board appears with 20 hidden cards | Pass |
+| Theme selection works | Select each theme before starting the game | Background, card colors, and visual style change based on selected theme | Pass |
+| Card flip works | Click one hidden card | Card reveals its emoji | Pass |
+| Mismatch behavior works | Click two cards that do not match | Both cards hide again after a short delay and feedback says “Try Again” | Pass |
+| Match behavior works | Click two cards with the same emoji | Cards remain visible and feedback says “Match Found” | Pass |
+| Move counter works | Flip two cards | Move count increases by 1 | Pass |
+| Match counter works | Match one pair | Match counter increases by 1 | Pass |
+| Win screen appears | Match all pairs | Journey Complete screen appears with theme, difficulty, moves, accuracy, and Play Again button | Pass |
+| Play Again works | Click Play Again on the win screen | User returns to setup screen and game state resets | Pass |
+| Responsive layout works | Resize browser window | Cards and layout remain usable and readable | Pass |
+| Accessibility basics | Use keyboard Tab key | Buttons and cards receive visible focus outline | Pass |
+
+---
+
 ## AI Acknowledgement
 
 This project was designed, implemented, and tested by the author.
