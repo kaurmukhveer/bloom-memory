@@ -13,6 +13,7 @@ function App() {
   const [flipped, setFlipped] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   function startGame() {
     const newCards = generateCards(level, category);
@@ -44,6 +45,7 @@ function playAgain() {
   setCards([]);
   setFlipped([]);
   setMoves(0);
+  setFeedback("");
 }
 
 
@@ -58,19 +60,22 @@ useEffect(() => {
   const [first, second] = flipped;
 
   if (first.value === second.value) {
+  setFeedback("✓ Match Found!");
 
-    const updatedCards = cards.map((card) =>
-      card.value === first.value
-        ? { ...card, matched: true }
-        : card
-    );
+  setTimeout(() => {
+    setFeedback("");
+  }, 1000);
 
-    setCards(updatedCards);
+  const updatedCards = cards.map((card) =>
+    card.value === first.value
+      ? { ...card, matched: true }
+      : card
+  );
 
-    setFlipped([]);
-
-  } else {
-
+  setCards(updatedCards);
+  setFlipped([]);
+}else {
+    setFeedback("✗ Try Again!");
     setTimeout(() => {
 
       const updatedCards = cards.map((card) =>
@@ -83,7 +88,7 @@ useEffect(() => {
 
       setFlipped([]);
 
-    }, 1000);
+      }, 1000);
 
   }
 
@@ -127,6 +132,7 @@ useEffect(() => {
           cards={cards}
           handleFlip={handleFlip}
           moves={moves}
+          feedback={feedback}
         />
 
       </main>

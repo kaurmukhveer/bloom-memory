@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-function GameBoard({ cards, handleFlip, moves }) {
+function GameBoard({ cards, handleFlip, moves, feedback }) {
   const matchedCards = cards.filter((card) => card.matched).length;
   const totalPairs = cards.length / 2;
   const matchedPairs = matchedCards / 2;
@@ -11,6 +11,9 @@ function GameBoard({ cards, handleFlip, moves }) {
         <span>Moves: {moves}</span>
         <span>Matches: {matchedPairs} / {totalPairs}</span>
       </div>
+      <p className="feedback-message">
+            {feedback}
+    </p>
 
       <div className="game-grid">
         {cards.map((card) => (
